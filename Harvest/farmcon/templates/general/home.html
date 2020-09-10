@@ -1,0 +1,41 @@
+<head>
+	<link rel="icon"
+      type="image/png"
+      href="/favicon.ico">
+</head>
+
+<form action="/s/" autocomplete="off">
+	<div>
+		<input type="text" name="q" placeholder="Search">
+	</div>
+	<button type="submit">Submit</button>
+</form>
+
+
+{% if user.is_authenticated %}
+	<a href="{% url 'logout' %}">Logout</a>
+	<a href="{% url 'update_profile' %}">Update Profile</a>
+	<a href="{% url 'user_profile' %}">Profile</a>
+	{% if user.status == 'Farmer' %}
+		<a href="{% url 'farmer' %}">My products page</a>
+	{% else %}
+		<a href="{% url 'buyer' %}">My products page</a>
+	{% endif %}
+{% else %}
+	<a href="{% url 'login' %}">Login</a>
+	<a href="{% url 'register' %}">Register</a>
+{% endif %}
+
+<br>
+
+{% for product in products %}
+	{{ product.id }}
+	<a href="{% url 'single_product' product.slug %}">{{ product.title }}</a>
+	{{ product.price }}
+	{{ product.slug }}
+
+	{% for item in product.productimage_set.all %}
+		{% load static %}
+		<img src="{{ MEDIA_URL }}{{ item.image }}" alt="My Image">
+	{% endfor %}
+{% endfor %}

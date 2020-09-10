@@ -1,0 +1,15 @@
+<a href="{% url 'home' %}">Home</a>
+{% if not user.phone_verify %}
+	<a href="{% url 'send_code' %}">Verify Phone Number</a>
+{% endif %}
+<hr>
+{% load static %}
+username = {{username }} </br>
+email = {{email }} </br>
+first_name = {{first_name }} </br>
+last_name = {{last_name }} </br>
+phone_number = {{phone_number }} </br>
+address = {{address }} </br>
+profile_image = <img src="{{ MEDIA_URL }}{{ profile_image }}" alt="Profile Picture"> </br>
+status = {{status }} </br>
+date_joined = {{date_joined }}

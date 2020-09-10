@@ -1,0 +1,12 @@
+{% autoescape off %}
+Hi {{ user.username }},
+Please click on the link to confirm your registration:
+
+http://{{ domain }}{% url 'activate_email' uidb64=uid token=token %}
+
+If clicking the link above doesn't work, please copy and paste the URL in a new browser
+window instead.
+
+Sincerely,
+Farmcon Team
+{% endautoescape %}

@@ -1,0 +1,8 @@
+<a href="{% url 'home' %}">Home</a>
+<hr>
+{{ response }}
+<form method="POST" action="" autocomplete="off">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<input type="submit" value="Submit" name="submit">
+</form>
