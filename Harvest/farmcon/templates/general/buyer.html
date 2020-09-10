@@ -1,0 +1,9 @@
+<a href="{% url 'home' %}">Home</a>
+<hr>
+<h1>Buyer page</h1>
+{% if not user.phone_verify %}
+	<a href="{% url 'send_code' %}">Verify Phone Number</a>
+{% endif %}
+<a href="{% url 'logout' %}">Logout</a>
+<a href="{% url 'update_profile' %}">Update Profile</a>
+<a href="{% url 'user_profile' %}">Profile</a>

@@ -1,0 +1,9 @@
+<a href="{% url 'home' %}">Home</a>
+<hr>
+<form method="POST" action="" autocomplete="off" enctype="multipart/form-data">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<input type="submit" value="Save changes" name="submit">
+</form>
+
+click <a href="{% url 'password_change' %}">here</a> to change your password
