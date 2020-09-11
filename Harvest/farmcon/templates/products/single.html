@@ -1,0 +1,13 @@
+<a href="{% url 'home' %}">Home</a>
+<hr>
+{% load static %}
+	{{ product.id }}
+	{{ product.title }}
+	{{ product.price }}
+	{{ product.slug }}
+
+	{% for pic in product.productimage_set.all %}
+		<img src="{{ MEDIA_URL }}{{ pic.image }}" alt="My Image">
+	{% endfor %}
+
+	{{ product.description }}
